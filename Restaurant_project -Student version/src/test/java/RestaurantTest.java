@@ -106,12 +106,18 @@ class RestaurantTest {
         assertEquals(0, orderValue);
     }
 
+    //Part 2 - fail test case
     @Test
     public void calculate_order_value_for_non_existing_item_should_get_fail() {
         int orderValue = restaurant.calculateOrderValue("Non-existing item");
         assertEquals(10, orderValue); // This is the expected order value, which is different from 0
     }
-
+    //Part 3: Solution
+    @Test
+    public void calculate_order_value_for_non_existing_item_should_pass() {
+        int orderValue = restaurant.calculateOrderValue("Non-existing item");
+        assertEquals(0, orderValue); // Expecting the order value to be 0 for a non-existing item
+    }
 
 
 }
