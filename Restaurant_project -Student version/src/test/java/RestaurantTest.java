@@ -93,7 +93,26 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-
+    //Part 3: Adding a Feature using TDD
+    @Test
+    public void calculate_order_value_for_items_in_menu() {
+        int orderValue = restaurant.calculateOrderValue("Sweet corn soup", "Vegetable lasagne");
+        assertEquals(388, orderValue);
     }
+
+    @Test
+    public void calculate_order_value_for_empty_item_list() {
+        int orderValue = restaurant.calculateOrderValue();
+        assertEquals(0, orderValue);
+    }
+
+    @Test
+    public void calculate_order_value_for_non_existing_item_should_get_fail() {
+        int orderValue = restaurant.calculateOrderValue("Non-existing item");
+        assertEquals(10, orderValue); // This is the expected order value, which is different from 0
+    }
+
+
+
+}
 

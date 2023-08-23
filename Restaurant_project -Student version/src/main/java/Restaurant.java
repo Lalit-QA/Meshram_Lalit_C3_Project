@@ -64,6 +64,20 @@ public class Restaurant {
                 +"Menu:"+"\n"+getMenu());
 
     }
+//////////////////Part 2: Implementing Methods and Tests////
+    public int calculateOrderValue(String... itemNames) {
+        int totalOrderValue = 0;
+        for (String itemName : itemNames) {
+            Item item = findItemByName(itemName);
+            if (item != null) {
+                totalOrderValue += item.getPrice();
+            }
+        }
+        return totalOrderValue;
+
+    }
+/////////////////////////////////////////////////
+
     public String getName() {
         return name;
     }
